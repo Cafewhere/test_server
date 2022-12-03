@@ -1,10 +1,15 @@
-from flask import Flask
+from flask import Flask, request, jsonify
+import time
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    return 'CafeWhere : Hello, World!'
+
+@app.route('/test')
+def get_test():
+    return jsonify({"date": time.strftime('%Y-%m-%d', time.localtime(time.time()))})
 
 if __name__ == "__main__":
     app.run()
