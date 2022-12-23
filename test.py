@@ -11,5 +11,9 @@ def hello_world():
 def get_test():
     return jsonify({"date": time.strftime('%Y-%m-%d', time.localtime(time.time()))})
 
+@app.route('/api/req', methods=['POST'])
+def print_res():
+    return jsonify({"date": time.strftime('%Y-%m-%d', time.localtime(time.time()))})
+
 if __name__ == "__main__":
     app.run()
