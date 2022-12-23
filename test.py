@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify
-import time
+import time, json
+import returnJson
+
 
 app = Flask(__name__)
 
@@ -13,7 +15,7 @@ def get_test():
 
 @app.route('/api/req', methods=['POST'])
 def print_res():
-    return jsonify({"date": time.strftime('%Y-%m-%d', time.localtime(time.time()))})
+    return returnJson.getTest()
 
 if __name__ == "__main__":
     app.run()
